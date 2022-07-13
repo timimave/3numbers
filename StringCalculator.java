@@ -32,7 +32,6 @@ public class StringCalculator {
 
         }
         String[] splitter = str.split("[+\\-*/]");
-
         String a = splitter[0].replaceAll(" ", "");
         String b = splitter[1].replaceAll(" ", "");
         return calculate(a, operator, b);
