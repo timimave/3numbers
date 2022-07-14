@@ -24,14 +24,11 @@ public class StringCalculator {
 
     public static String getOperation() {
         String str = scanner.nextLine();
-        for (int i = 0; i < str.length(); i++) {
-            if (str.contains("+")) operator = "+";
-            if (str.contains("-")) operator = "-";
-            if (str.contains("*")) operator = "*";
-            if (str.contains("/")) operator = "/";
-
-        }
-        String[] splitter = str.split("[+\\-*/]");
+        if (str.contains("+")) operator = "+";
+        else if (str.contains("-")) operator = "-";
+        else if (str.contains("*")) operator = "*";
+        else if (str.contains("/")) operator = "/";
+        String[] splitter = str.split("[+\\-*/]",2);
         String a = splitter[0].replaceAll(" ", "");
         String b = splitter[1].replaceAll(" ", "");
         return calculate(a, operator, b);

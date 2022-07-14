@@ -1,7 +1,7 @@
 package MyGit.Rome_calc.MainTask;
 
-import static Задачи_из_CODE_WARS.Calculators.MainTask.romanCalculator.toArabic;
-import static Задачи_из_CODE_WARS.Calculators.MainTask.romanCalculator.toRoman;
+import static Задачи_из_CODE_WARS.Calculators.MainTask.Converter.toArabic;
+import static Задачи_из_CODE_WARS.Calculators.MainTask.Converter.toRoman;
 
 public class Main {
     public static void main(String[] args) {
