@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class StringCalculator {
     static Scanner scanner = new Scanner(System.in);
     static String operator;
+    public static String[] array;
 
 
     public static void main(String[] args) {
@@ -23,12 +24,29 @@ public class StringCalculator {
     }
 
     public static String getOperation() {
-        String str = scanner.nextLine();
-        if (str.contains("+")) operator = "+";
-        else if (str.contains("-")) operator = "-";
-        else if (str.contains("*")) operator = "*";
-        else if (str.contains("/")) operator = "/";
-        String[] splitter = str.split("[+\\-*/]",2);
+        String  str = scanner.nextLine();
+        String[] array = str.split("");
+        label:
+        for (String s : array) {
+
+            switch (s) {
+                case "+":
+                    operator = "+";
+                    break label;
+                case "-":
+                    operator = "-";
+                    break label;
+                case "*":
+                    operator = "*";
+                    break label;
+                case "/":
+                    operator = "/";
+                    break;
+            }
+        }
+
+
+        String[] splitter = str.split("[+\\-*/]", 2);
         String a = splitter[0].replaceAll(" ", "");
         String b = splitter[1].replaceAll(" ", "");
         return calculate(a, operator, b);
@@ -36,18 +54,18 @@ public class StringCalculator {
     }
 
     public static String calculate(String a, String operator, String b) {
-      try {
-          return switch (operator) {
-              case "+" -> a.concat(b);
-              case "-" -> a.replaceFirst(b, "");
-              case "*" -> a.repeat(Integer.parseInt(b));
-              case "/" -> a.substring(0, a.length() / Integer.parseInt(b));
-              default -> null;
-          };
-      } catch (Exception exception) {
-          System.out.println("Неверное действие: " + exception);
-      }
-      return null;
+        try {
+            return switch (operator) {
+                case "+" -> a.concat(b);
+                case "-" -> a.replaceFirst(b, "");
+                case "*" -> a.repeat(Integer.parseInt(b));
+                case "/" -> a.substring(0, a.length() / Integer.parseInt(b));
+                default -> null;
+            };
+        } catch (Exception exception) {
+            System.out.println("Неверное действие: " + exception);
+        }
+        return null;
     }
 }
 
