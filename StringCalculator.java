@@ -26,15 +26,25 @@ public class StringCalculator {
     public static String getOperation() {
         String  str = scanner.nextLine();
         String[] array = str.split("");
-
+        label:
         for (String s : array) {
+
             switch (s) {
-                case "+" -> operator = "+";
-                case "-" -> operator = "-";
-                case "*" -> operator = "*";
-                case "/" -> operator = "/";
+                case "+":
+                    operator = "+";
+                    break label;
+                case "-":
+                    operator = "-";
+                    break label;
+                case "*":
+                    operator = "*";
+                    break label;
+                case "/":
+                    operator = "/";
+                    break;
             }
         }
+
 
         String[] splitter = str.split("[+\\-*/]", 2);
         String a = splitter[0].replaceAll(" ", "");
