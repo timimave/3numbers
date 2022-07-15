@@ -15,9 +15,13 @@ public class Converter {
     private static final String[] numerals =
             {"", "I", "IV", "V", "IX", "X", "XL",
                     "L", "XC", "C", "CD", "D", "CM", "M"};
-    public static String toRoman() {
-        String str = getOperation();
-        long num = Integer.parseInt(str);
+    public static String start() {
+        return getOperation(scanner.nextLine());
+    }
+
+    public static String toRoman(long num) {
+        //String str = getOperation(scanner.nextLine());
+        // long num = Integer.parseInt(str);
         if (num > 0) {
             StringBuilder build = new StringBuilder();
             final romanNumber[] values = romanNumber.values();
@@ -32,8 +36,8 @@ public class Converter {
             throw new IllegalArgumentException();
         }
     }
-    public static String getOperation() {
-        String input = scanner.nextLine();
+    public static String getOperation(String input) {
+       // String input = scanner.nextLine();
         String[] array = input.split("");
         label:
         for (String s : array) {

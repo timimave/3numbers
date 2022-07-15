@@ -5,15 +5,39 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+//        Converter.start();
+        String s = scanner.nextLine();
+        String[] array = s.split("");
+      //  System.out.println(Arrays.toString(array));
+        // сделать проверку на символы и взависимости от того вызывать нужный метод
+        StringBuilder builder = new StringBuilder();
+        for (String item : array) {
+            builder.append(item);
+        }
+        for (String value : array) {
+            if (value.equals("I")
+             || value.equals("V")
+             || value.equals("X")
+             || value.equals("L")
+             || value.equals("C")
+             || value.equals("D")
+             || value.equals("M")) {
+             Converter.getOperation(String.valueOf(builder));
+            } else if (value.equals("1")||
+                    value.equals("2")||
+                    value.equals("3")||
+                    value.equals("4")||
+                    value.equals("5")||
+                    value.equals("6")||
+                    value.equals("7")||
+                    value.equals("8")||
+                    value.equals("9")||
+                    value.equals("0")) {
+                // отправить число в обычный кальк
+                }
+        }
+       // System.out.println(builder);
 
-        String result = Converter.toRoman();
-
-
-
-
-
-        /*String result = Converter.toRoman();
-        System.out.println(result);*/
     }
 }
 
