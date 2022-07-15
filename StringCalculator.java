@@ -24,8 +24,8 @@ public class StringCalculator {
     }
 
     public static String getOperation() {
-        String  str = scanner.nextLine();
-        String[] array = str.split("");
+        String  input = scanner.nextLine();
+        String[] array = input.split("");
         label:
         for (String s : array) {
 
@@ -46,7 +46,7 @@ public class StringCalculator {
         }
 
 
-        String[] splitter = str.split("[+\\-*/]", 2);
+        String[] splitter = input.split("[+\\-*/]", 2);
         String a = splitter[0].replaceAll(" ", "");
         String b = splitter[1].replaceAll(" ", "");
         return calculate(a, operator, b);

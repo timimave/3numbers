@@ -1,15 +1,10 @@
 package MyGit.Rome_calc.MainTask;
 
-import static Задачи_из_CODE_WARS.Calculators.MainTask.Converter.toArabic;
-import static Задачи_из_CODE_WARS.Calculators.MainTask.Converter.toRoman;
-
 public class Main {
     public static void main(String[] args) {
-        int num = 5;
-        String roman=toRoman(num);
-        int arabic = toArabic(roman);
-        System.out.println(arabic);
-        System.out.println(roman);
+
+        String result = Converter.toRoman();
+        System.out.println(result);
     }
 }
 
