@@ -1,10 +1,19 @@
 package MyGit.Rome_calc.MainTask;
 
+import java.util.Scanner;
+
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
         String result = Converter.toRoman();
-        System.out.println(result);
+
+
+
+
+
+        /*String result = Converter.toRoman();
+        System.out.println(result);*/
     }
 }
 
