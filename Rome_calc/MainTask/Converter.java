@@ -15,13 +15,10 @@ public class Converter {
     private static final String[] numerals =
             {"", "I", "IV", "V", "IX", "X", "XL",
                     "L", "XC", "C", "CD", "D", "CM", "M"};
-    public static String start() {
-        return getOperation(scanner.nextLine());
-    }
+
 
     public static String toRoman(long num) {
-        //String str = getOperation(scanner.nextLine());
-        // long num = Integer.parseInt(str);
+
         if (num > 0) {
             StringBuilder build = new StringBuilder();
             final romanNumber[] values = romanNumber.values();
@@ -37,7 +34,7 @@ public class Converter {
         }
     }
     public static String getOperation(String input) {
-       // String input = scanner.nextLine();
+
         String[] array = input.split("");
         label:
         for (String s : array) {
@@ -64,8 +61,6 @@ public class Converter {
         return String.valueOf(Calculate(toArabic_A(a), operator, toArabic_B(b)));
 
     }
-
-
 
     public static int toArabic_A(String roman) {
 

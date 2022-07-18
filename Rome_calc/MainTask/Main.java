@@ -7,8 +7,11 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static String operator;
     static long answer;
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        start();
+    }
+    public static void start() {
         String input = scanner.nextLine();
         String[] array = input.split("");
         label:
@@ -29,45 +32,26 @@ public class Main {
                     break;
             }
         }
-
-        // сделать проверку на символы и взависимости от того вызывать нужный метод
         StringBuilder builder = new StringBuilder();
         for (String item : array) {
             builder.append(item);
         }
-        //  System.out.println(builder);
-        String test = String.valueOf(builder);
-        System.out.println(test);
+        String text = String.valueOf(builder);
+        System.out.println(text);
 
+         boolean foundWords = Pattern.matches("\\D+", text);
+         boolean foundNums = Pattern.matches("[^A-Z]+", text);
 
-         boolean foundWords = Pattern.matches("\\D+",test);
-         boolean foundNums = Pattern.matches("[^A-Z]+",test);
-       //  System.out.println("words: " + foundWords);
-       //  System.out.println("nums: " + foundNums);;
-
-         if(foundWords) {
-             answer = Long.parseLong(Converter.getOperation(test));
-             System.out.println(Converter.toRoman(answer));
-         } else
-             System.out.println("Цифры");
-                String[] splitter = test.split("[+\\-*/]", 2);
-                String a = splitter[0].replaceAll(" ", "");
-                String b = splitter[1].replaceAll(" ", "");
-        System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
-
-
-
-        //        // System.out.println(builder);
-//        for (int i = 0; i < array.length; i++) {
-//            if (array[i].equals("I")) { // или или или или ...
-//                Converter.getOperation(test);
-//            } else if (array[i].equals("1")) { // или или или или ...
-//                String[] splitter = test.split("[+\\-*/]", 2);
-//                String a = splitter[0].replaceAll(" ", "");
-//                String b = splitter[1].replaceAll(" ", "");
-//                System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
-//            }
-//        }
+        if (foundWords) {
+            answer = Long.parseLong(Converter.getOperation(text));
+            System.out.println(Converter.toRoman(answer));
+        } else if(foundNums) {
+            System.out.println("Цифры");
+            String[] splitter = text.split("[+\\-*/]", 2);
+            String a = splitter[0].replaceAll(" ", "");
+            String b = splitter[1].replaceAll(" ", "");
+            System.out.println(Calculator.Calculate(Integer.parseInt(a), operator, Integer.parseInt(b)));
+        }
 
     }
 }
@@ -159,3 +143,68 @@ public class Main {
             i++;
         }
         return result.toString();*/
+
+
+
+// -------------------------------------------------------------------------------
+
+//        String input = scanner.nextLine();
+//        String[] array = input.split("");
+//        label:
+//        for (String s : array) {
+//
+//            switch (s) {
+//                case "+":
+//                    operator = "+";
+//                    break label;
+//                case "-":
+//                    operator = "-";
+//                    break label;
+//                case "*":
+//                    operator = "*";
+//                    break label;
+//                case "/":
+//                    operator = "/";
+//                    break;
+//            }
+//        }
+//
+//        // сделать проверку на символы и взависимости от того вызывать нужный метод
+//        StringBuilder builder = new StringBuilder();
+//        for (String item : array) {
+//            builder.append(item);
+//        }
+//        //  System.out.println(builder);
+//        String test = String.valueOf(builder);
+//        System.out.println(test);
+//
+//
+//        boolean foundWords = Pattern.matches("\\D+", test);
+//        boolean foundNums = Pattern.matches("[^A-Z]+", test);
+//        //  System.out.println("words: " + foundWords);
+//        //  System.out.println("nums: " + foundNums);;
+//
+//        if (foundWords) {
+//            answer = Long.parseLong(Converter.getOperation(test));
+//            System.out.println(Converter.toRoman(answer));
+//        } else
+//            System.out.println("Цифры");
+//        String[] splitter = test.split("[+\\-*/]", 2);
+//        String a = splitter[0].replaceAll(" ", "");
+//        String b = splitter[1].replaceAll(" ", "");
+//        System.out.println(Calculator.Calculate(Integer.parseInt(a), operator, Integer.parseInt(b)));
+
+
+//        // System.out.println(builder);
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i].equals("I")) { // или или или или ...
+//                Converter.getOperation(test);
+//            } else if (array[i].equals("1")) { // или или или или ...
+//                String[] splitter = test.split("[+\\-*/]", 2);
+//                String a = splitter[0].replaceAll(" ", "");
+//                String b = splitter[1].replaceAll(" ", "");
+//                System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
+//            }
+//        }
+
+//--------------------------------------------------------------------
