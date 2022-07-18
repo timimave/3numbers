@@ -1,11 +1,9 @@
 package MyGit.Rome_calc.MainTask;
 
-import java.util.Scanner;
-
 import static MyGit.Rome_calc.MainTask.Calculator.Calculate;
 
 public class Converter {
-    static Scanner scanner = new Scanner(System.in);
+
     static String operator;
 
 

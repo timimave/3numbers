@@ -9,9 +9,9 @@ public class Main {
     static long answer;
 
     public static void main(String[] args) {
-        start();
+        run();
     }
-    public static void start() {
+    public static void run() {
         String input = scanner.nextLine();
         String[] array = input.split("");
         label:
@@ -39,7 +39,7 @@ public class Main {
         String text = String.valueOf(builder);
         System.out.println(text);
 
-         boolean foundWords = Pattern.matches("\\D+", text);
+         boolean foundWords = Pattern.matches("[^ABEFGHJKNOPQRSTUWYZ\\d]+", text);
          boolean foundNums = Pattern.matches("[^A-Z]+", text);
 
         if (foundWords) {
@@ -50,7 +50,8 @@ public class Main {
             String[] splitter = text.split("[+\\-*/]", 2);
             String a = splitter[0].replaceAll(" ", "");
             String b = splitter[1].replaceAll(" ", "");
-            System.out.println(Calculator.Calculate(Integer.parseInt(a), operator, Integer.parseInt(b)));
+            System.out.println
+            (Calculator.Calculate(Integer.parseInt(a), operator, Integer.parseInt(b)));
         }
 
     }
