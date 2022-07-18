@@ -7,6 +7,7 @@ public class Start {
     static Scanner scanner = new Scanner(System.in);
     static String operator;
     static long answer;
+
     public static void run() {
         String input = scanner.nextLine();
         String[] array = input.split("");
@@ -33,21 +34,31 @@ public class Start {
             builder.append(item);
         }
         String text = String.valueOf(builder);
-        System.out.println(text);
+        // System.out.println(text);
 
         boolean foundWords = Pattern.matches("[^ABEFGHJKNOPQRSTUWYZ\\d]+", text);
         boolean foundNums = Pattern.matches("[^A-Z]+", text);
 
         if (foundWords) {
-            answer = Long.parseLong(Converter.getOperation(text));
-            System.out.println(Converter.toRoman(answer));
-        } else if(foundNums) {
-            System.out.println("Цифры");
-            String[] splitter = text.split("[+\\-*/]", 2);
-            String a = splitter[0].replaceAll(" ", "");
-            String b = splitter[1].replaceAll(" ", "");
-            System.out.println
-                    (Calculator.Calculate(Integer.parseInt(a), operator, Integer.parseInt(b)));
+            try {
+                answer = Long.parseLong(Converter.getOperation(text));
+                System.out.println(Converter.toRoman(answer));
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Ошибка! т.к. строка не является математической операцией");
+            }
+        } else if (foundNums) {
+            // System.out.println("Цифры");
+            try {
+                String[] splitter = text.split("[+\\-*/]", 2);
+                String a = splitter[0].replaceAll(" ", "");
+                String b = splitter[1].replaceAll(" ", "");
+                System.out.println
+                        (Calculator.Calculate(Integer.parseInt(a), operator, Integer.parseInt(b)));
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Ошибка! т.к. строка не является математической операцией");
+            } catch (NumberFormatException e) {
+                System.out.println("Ошибка! т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
+            }
         } else {
             System.out.println("Ошибка! т.к. используются одновременно разные системы счисления");
         }
