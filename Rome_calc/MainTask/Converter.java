@@ -1,11 +1,9 @@
 package MyGit.Rome_calc.MainTask;
 
-import java.util.Scanner;
-
 import static MyGit.Rome_calc.MainTask.Calculator.Calculate;
 
 public class Converter {
-    static Scanner scanner = new Scanner(System.in);
+
     static String operator;
 
 
@@ -30,6 +28,7 @@ public class Converter {
             }
             return build.toString();
         } else {
+            System.out.println("Ошибка! в римской системе нет отрицательных чисел");
             throw new IllegalArgumentException();
         }
     }
