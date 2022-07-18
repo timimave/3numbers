@@ -1,6 +1,7 @@
 package MyGit.Rome_calc.MainTask;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
@@ -38,18 +39,25 @@ public class Main {
         String test = String.valueOf(builder);
         System.out.println(test);
 
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].equals("I")) { // или или или или ...
-                  Converter.getOperation(test);
-            } else if (array[i].equals("1")) { // или или или или ...
-                String[] splitter = test.split("[+\\-*/]", 2);
-                String a = splitter[0].replaceAll(" ", "");
-                String b = splitter[1].replaceAll(" ", "");
-                System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
-            }
-        }
-        System.out.println();
-        // System.out.println(builder);
+
+         boolean foundWords = Pattern.matches("\\D+",test);
+         boolean foundNums = Pattern.matches("[^A-Z]+",test);
+         System.out.println("words: " + foundWords);
+         System.out.println("nums: " + foundNums);;
+
+
+
+        //        // System.out.println(builder);
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i].equals("I")) { // или или или или ...
+//                Converter.getOperation(test);
+//            } else if (array[i].equals("1")) { // или или или или ...
+//                String[] splitter = test.split("[+\\-*/]", 2);
+//                String a = splitter[0].replaceAll(" ", "");
+//                String b = splitter[1].replaceAll(" ", "");
+//                System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
+//            }
+//        }
 
     }
 }
