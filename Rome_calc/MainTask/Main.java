@@ -4,39 +4,52 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
+    static String operator;
+    String startToRoman;
     public static void main(String[] args) {
-//        Converter.start();
-        String s = scanner.nextLine();
-        String[] array = s.split("");
-      //  System.out.println(Arrays.toString(array));
+
+        String input = scanner.nextLine();
+        String[] array = input.split("");
+        label:
+        for (String s : array) {
+
+            switch (s) {
+                case "+":
+                    operator = "+";
+                    break label;
+                case "-":
+                    operator = "-";
+                    break label;
+                case "*":
+                    operator = "*";
+                    break label;
+                case "/":
+                    operator = "/";
+                    break;
+            }
+        }
+
         // сделать проверку на символы и взависимости от того вызывать нужный метод
         StringBuilder builder = new StringBuilder();
         for (String item : array) {
             builder.append(item);
         }
-        for (String value : array) {
-            if (value.equals("I")
-             || value.equals("V")
-             || value.equals("X")
-             || value.equals("L")
-             || value.equals("C")
-             || value.equals("D")
-             || value.equals("M")) {
-             Converter.getOperation(String.valueOf(builder));
-            } else if (value.equals("1")||
-                    value.equals("2")||
-                    value.equals("3")||
-                    value.equals("4")||
-                    value.equals("5")||
-                    value.equals("6")||
-                    value.equals("7")||
-                    value.equals("8")||
-                    value.equals("9")||
-                    value.equals("0")) {
-                // отправить число в обычный кальк
-                }
+        //  System.out.println(builder);
+        String test = String.valueOf(builder);
+        System.out.println(test);
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals("I")) { // или или или или ...
+                  Converter.getOperation(test);
+            } else if (array[i].equals("1")) { // или или или или ...
+                String[] splitter = test.split("[+\\-*/]", 2);
+                String a = splitter[0].replaceAll(" ", "");
+                String b = splitter[1].replaceAll(" ", "");
+                System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
+            }
         }
-       // System.out.println(builder);
+        System.out.println();
+        // System.out.println(builder);
 
     }
 }
