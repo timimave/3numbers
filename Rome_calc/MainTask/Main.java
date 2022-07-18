@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static String operator;
-    String startToRoman;
+    static long answer;
     public static void main(String[] args) {
 
         String input = scanner.nextLine();
@@ -42,8 +42,18 @@ public class Main {
 
          boolean foundWords = Pattern.matches("\\D+",test);
          boolean foundNums = Pattern.matches("[^A-Z]+",test);
-         System.out.println("words: " + foundWords);
-         System.out.println("nums: " + foundNums);;
+       //  System.out.println("words: " + foundWords);
+       //  System.out.println("nums: " + foundNums);;
+
+         if(foundWords) {
+             answer = Long.parseLong(Converter.getOperation(test));
+             System.out.println(Converter.toRoman(answer));
+         } else
+             System.out.println("Цифры");
+                String[] splitter = test.split("[+\\-*/]", 2);
+                String a = splitter[0].replaceAll(" ", "");
+                String b = splitter[1].replaceAll(" ", "");
+        System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
 
 
 
