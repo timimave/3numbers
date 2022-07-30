@@ -37,7 +37,7 @@ public class Start {
         // System.out.println(text);
 
         boolean foundWords = Pattern.matches("[^ABEFGHJKNOPQRSTUWYZ\\d]+", text);
-        boolean foundNums = Pattern.matches("[^A-Z]+", text);
+        boolean foundNum = Pattern.matches("[^A-Z]+", text);
 
         if (foundWords) {
             try {
@@ -46,7 +46,7 @@ public class Start {
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Ошибка! т.к. строка не является математической операцией");
             }
-        } else if (foundNums) {
+        } else if (foundNum) {
             // System.out.println("Цифры");
             try {
                 String[] splitter = text.split("[+\\-*/]", 2);

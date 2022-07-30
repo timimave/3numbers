@@ -6,11 +6,7 @@ public class StringCalculator {
     static Scanner scanner = new Scanner(System.in);
     static String operator;
     public static String[] array;
-
-
-    public static void main(String[] args) {
-        startOperation();
-    }
+    public static void main(String[] args) { startOperation(); }
 
     public static void startOperation() {
         String operationResult = getOperation();
@@ -22,7 +18,6 @@ public class StringCalculator {
             System.out.println(operationResult);
         }
     }
-
     public static String getOperation() {
         String  input = scanner.nextLine();
         String[] array = input.split("");
@@ -44,15 +39,11 @@ public class StringCalculator {
                     break;
             }
         }
-
-
         String[] splitter = input.split("[+\\-*/]", 2);
         String a = splitter[0].replaceAll(" ", "");
         String b = splitter[1].replaceAll(" ", "");
         return calculate(a, operator, b);
-
     }
-
     public static String calculate(String a, String operator, String b) {
         try {
             return switch (operator) {

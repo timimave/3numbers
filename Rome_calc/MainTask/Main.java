@@ -1,9 +1,7 @@
 package MyGit.Rome_calc.MainTask;
 
 public class Main {
-    public static void main(String[] args) {
-        Start.run();
-    }
+    public static void main(String[] args) { Start.run(); }
 }
 
 
@@ -77,84 +75,5 @@ public class Main {
 
 
 
-/* String[] roman = {"M", "XM", "CM", "D", "XD", "CD", "C",
-                "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-        int[] arabic = {1000, 990, 900, 500, 490, 400, 100, 90,
-                50, 40, 10, 9, 5, 4, 1};
-
-        StringBuilder result = new StringBuilder();
-        int i = 0;
-        while (true) {
-            if (number <= 0 && arabic.length != (i - 1)) break;
-            while ((number - arabic[i]) >= 0) {
-                number = number - arabic[i];
-                result.append(roman[i]);
-            }
-            i++;
-        }
-        return result.toString();*/
 
 
-
-// -------------------------------------------------------------------------------
-
-//        String input = scanner.nextLine();
-//        String[] array = input.split("");
-//        label:
-//        for (String s : array) {
-//
-//            switch (s) {
-//                case "+":
-//                    operator = "+";
-//                    break label;
-//                case "-":
-//                    operator = "-";
-//                    break label;
-//                case "*":
-//                    operator = "*";
-//                    break label;
-//                case "/":
-//                    operator = "/";
-//                    break;
-//            }
-//        }
-//
-//        // сделать проверку на символы и взависимости от того вызывать нужный метод
-//        StringBuilder builder = new StringBuilder();
-//        for (String item : array) {
-//            builder.append(item);
-//        }
-//        //  System.out.println(builder);
-//        String test = String.valueOf(builder);
-//        System.out.println(test);
-//
-//
-//        boolean foundWords = Pattern.matches("\\D+", test);
-//        boolean foundNums = Pattern.matches("[^A-Z]+", test);
-//        //  System.out.println("words: " + foundWords);
-//        //  System.out.println("nums: " + foundNums);;
-//
-//        if (foundWords) {
-//            answer = Long.parseLong(Converter.getOperation(test));
-//            System.out.println(Converter.toRoman(answer));
-//        } else
-//            System.out.println("Цифры");
-//        String[] splitter = test.split("[+\\-*/]", 2);
-//        String a = splitter[0].replaceAll(" ", "");
-//        String b = splitter[1].replaceAll(" ", "");
-//        System.out.println(Calculator.Calculate(Integer.parseInt(a), operator, Integer.parseInt(b)));
-
-
-//        // System.out.println(builder);
-//        for (int i = 0; i < array.length; i++) {
-//            if (array[i].equals("I")) { // или или или или ...
-//                Converter.getOperation(test);
-//            } else if (array[i].equals("1")) { // или или или или ...
-//                String[] splitter = test.split("[+\\-*/]", 2);
-//                String a = splitter[0].replaceAll(" ", "");
-//                String b = splitter[1].replaceAll(" ", "");
-//                System.out.println(Calculator.Calculate(Integer.parseInt(a),operator,Integer.parseInt(b)));
-//            }
-//        }
-
-//--------------------------------------------------------------------
