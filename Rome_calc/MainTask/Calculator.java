@@ -8,7 +8,7 @@ public class Calculator {
                 throw new Exception();
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Вы вели число больше 10");
+                System.out.println("Вы ввели число больше 10");
             }
         }
             if (a != 0 && b != 0)
