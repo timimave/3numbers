@@ -1,7 +1,7 @@
 package MyGit;
 
 import java.util.Scanner;
-
+/***/
 public class StringCalculator {
     static Scanner scanner = new Scanner(System.in);
     static String operator;

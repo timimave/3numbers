@@ -57,23 +57,11 @@ public class Converter {
         String[] splitter = input.split("[+\\-*/]", 2);
         String a = splitter[0].replaceAll(" ", "");
         String b = splitter[1].replaceAll(" ", "");
-        return String.valueOf(Calculate(toArabic_A(a), operator, toArabic_B(b)));
+        return String.valueOf(Calculate(toArabic(a), operator, toArabic(b)));
 
     }
 
-    public static int toArabic_A(String roman) {
-
-        int result = 0;
-        for (int i = intervals.length - 1; i >= 0; i--) {
-            while (roman.indexOf(numerals[i]) == 0 && numerals[i].length() > 0) {
-                result += intervals[i];
-                roman = roman.substring(numerals[i].length());
-            }
-        }
-        return result;
-    }
-
-    public static int toArabic_B(String roman) {
+    public static int toArabic(String roman) {
 
         int result = 0;
         for (int i = intervals.length - 1; i >= 0; i--) {
